@@ -1,0 +1,65 @@
+body {
+    font-family: 'Amiri', serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    background-color: #1A5276;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.progress-container {
+    margin: 40px auto;
+}
+
+.progress-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #2E7D32 30%,
+        #eeeeee 30%
+    );
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-text {
+    font-size: 2.5em;
+    color: #1A5276;
+}
+
+.progress-message {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 15px;
+}
+
+.quran-verse {
+    font-size: 1.5em;
+    color: #1A5276;
+    margin: 30px 0;
+}
+
+.start-button {
+    background-color: #D4AF37;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-button:hover {
+    background-color: #B7950B;
+}
