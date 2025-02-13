@@ -1,6 +1,5 @@
-// تهيئة التطبيق
 document.addEventListener('DOMContentLoaded', () => {
-    // تحديث شريط تقدم المهمة اليومية
+    // تهيئة شريط تقدم المهمة
     const progressBar = document.querySelector('.progress-bar');
     let progress = 0;
     const progressInterval = setInterval(() => {
@@ -9,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (progress >= 100) clearInterval(progressInterval);
     }, 50);
 
-    // إدارة النقر على دائرة التقدم
+    // إدارة دائرة التقدم
     const progressCircle = document.querySelector('.progress-circle');
     const progressText = document.querySelector('.progress-text');
     let currentProgress = 30;
@@ -41,11 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }
 
-    // تحديث الرسالة كل 30 ثانية
     setInterval(updateMotivationalMessage, 30000);
 });
 
-// بدء القراءة
+function toggleSettings() {
+    const menu = document.getElementById('settings-menu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+
+document.addEventListener('click', (event) => {
+    const menu = document.getElementById('settings-menu');
+    const settingsButton = document.querySelector('.nav-icon');
+    
+    if (!menu.contains(event.target) && !settingsButton.contains(event.target)) {
+        menu.style.display = 'none';
+    }
+});
+
+window.addEventListener('scroll', () => {
+    document.getElementById('settings-menu').style.display = 'none';
+});
+
 function startReading() {
     window.location.href = 'reading.html';
 }
