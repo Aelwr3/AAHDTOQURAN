@@ -3,30 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عاهدت القرآن</title>
+    <title>عاهدت القرآن - مساعدك لختم القرآن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>عاهدت القرآن 🌙</h1>
-    </header>
-
-    <main>
-        <div class="progress-container">
-            <div class="progress-circle" data-progress="30">
-                <span class="progress-text">30%</span>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">عاهدت القرآن 🌙</h1>
+            <div class="nav-links">
+                <a href="#progress" class="active">التقدم</a>
+                <a href="#daily-task">المهمة اليومية</a>
+                <a href="#settings">الإعدادات</a>
             </div>
-            <p class="progress-message">أكملت 30% من الختمة</p>
         </div>
+    </nav>
 
-        <div class="quran-verse">
-            <p>﴿وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ﴾</p>
+    <!-- محتوى الصفحة الرئيسية -->
+    <main class="container">
+        <!-- دائرة التقدم التفاعلية -->
+        <section id="progress" class="progress-section">
+            <div class="progress-container">
+                <div class="progress-circle" data-progress="30">
+                    <div class="inner-circle">
+                        <span class="progress-text">30%</span>
+                        <p class="progress-subtext">إنجازك الحالي</p>
+                    </div>
+                </div>
+                <div class="motivational-message">
+                    <p id="message-text">﴿وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ﴾</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- المهمة اليومية -->
+        <section id="daily-task" class="daily-task-section">
+            <div class="task-card">
+                <div class="task-header">
+                    <i class="fas fa-tasks"></i>
+                    <h2>مهمة اليوم 📅</h2>
+                </div>
+                <div class="task-content">
+                    <p class="task-details">الجزء 21: وَقُلْ جَاءَ الْحَقُّ</p>
+                    <div class="task-progress">
+                        <div class="progress-bar" style="width: 0%"></div>
+                    </div>
+                    <button class="task-button" onclick="startReading()">
+                        ابدأ القراءة الآن <i class="fas fa-book-open"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- إحصاءات سريعة -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <h3>5 أيام متتالية</h3>
+                <p>التزام مستمر</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-book"></i>
+                <h3>23 جزءًا</h3>
+                <p>تم إكمالهم</p>
+            </div>
         </div>
-
-        <button class="start-button" onclick="location.href='reading.html'">
-            ابدأ القراءة الآن 📖
-        </button>
     </main>
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <p>تم التطوير بكل الحب لخدمة كتاب الله ❤️</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
