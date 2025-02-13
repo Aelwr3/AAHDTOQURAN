@@ -3,39 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عاهدت القرآن - الصفحة الرئيسية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;500&display=swap" rel="stylesheet">
+    <title>عاهدت القرآن - المنصة المتكاملة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1A5276;
-            --secondary: #2E7D32;
-            --accent: #D4AF37;
-            --text: #2D3436;
-            --bg: #FFFFFF;
+            --primary: #1a5276;
+            --secondary: #2e7d32;
+            --accent: #d4af37;
+            --dark: #2d3436;
+            --light: #f8f9fa;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Noto Naskh Arabic', serif;
         }
 
         body {
-            background: var(--bg);
-            color: var(--text);
+            background: var(--light);
+            color: var(--dark);
         }
 
-        /* الشريط العلوي */
-        .navbar {
+        /* الشريط العلوي المتقدم */
+        .nav-container {
             background: var(--primary);
-            padding: 1rem;
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .nav-content {
@@ -46,199 +47,306 @@
             align-items: center;
         }
 
-        .logo {
+        .logo-group {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .logo img {
-            width: 40px;
-            height: 40px;
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
         }
 
-        .logo h1 {
-            color: white;
-            font-family: 'Amiri', serif;
-            font-size: 1.8rem;
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: 0.3s;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: 0.3s;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
         }
 
         /* المحتوى الرئيسي */
-        .main {
+        .main-container {
             max-width: 1200px;
             margin: 80px auto 0;
             padding: 2rem;
         }
 
-        /* دائرة التقدم */
+        /* بطاقة التقدم */
         .progress-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                var(--primary) 0%, 
+                var(--secondary) 100%);
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        .progress-circle {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: #eee;
+            stroke-width: 8;
+        }
+
+        .circle-progress {
+            fill: none;
+            stroke: var(--secondary);
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke-dasharray: 628;
+            stroke-dashoffset: 440;
+            transition: 1s ease;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .percentage {
+            font-size: 3.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .progress-label {
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+
+        /* المهمة اليومية */
+        .task-container {
             background: white;
             border-radius: 20px;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .progress-circle {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: conic-gradient(var(--secondary) 30%, #eee 30%);
-            margin: 0 auto 1rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .progress-percent {
-            font-family: 'Amiri', serif;
-            font-size: 2.5rem;
-            color: var(--primary);
-        }
-
-        .progress-text {
-            color: var(--text);
-            font-size: 1.1rem;
-        }
-
-        /* المهمة اليومية */
-        .daily-task {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            position: relative;
         }
 
         .task-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .task-header i {
+        .task-icon {
+            font-size: 2rem;
             color: var(--accent);
-            font-size: 1.5rem;
+        }
+
+        .task-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .task-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
         }
 
         .task-details {
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            text-align: right;
         }
 
-        .progress-bar {
-            height: 8px;
+        .part-number {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .part-name {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin: 0.5rem 0;
+        }
+
+        .progress-bar-container {
+            height: 10px;
             background: #eee;
-            border-radius: 4px;
+            border-radius: 5px;
             overflow: hidden;
         }
 
-        .progress-fill {
+        .progress-bar {
             height: 100%;
             background: var(--secondary);
-            width: 0;
+            width: 30%;
             transition: 1s ease;
         }
 
-        .start-btn {
+        .action-button {
             background: var(--secondary);
             color: white;
             border: none;
             padding: 1rem 2rem;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            margin-top: 1rem;
+            border-radius: 30px;
+            font-size: 1.2rem;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1rem;
             transition: 0.3s;
         }
 
-        .start-btn:hover {
-            transform: translateY(-2px);
+        .action-button:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
         }
 
         @media (max-width: 768px) {
-            .progress-circle {
-                width: 150px;
-                height: 150px;
+            .nav-container {
+                padding: 1rem;
             }
-            
-            .progress-percent {
-                font-size: 2rem;
+
+            .nav-menu {
+                display: none;
+            }
+
+            .progress-card {
+                padding: 2rem;
+            }
+
+            .task-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
+    <!-- شريط التنقل -->
+    <nav class="nav-container">
         <div class="nav-content">
-            <div class="logo">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFkSURBVHgB7ZbRbcMwDEUf0g1cgTtBK3An6AZJB+oG6QZJB+oG6QZJB3I3SAfqBskG9kOWY0e2JCeO0Q96QCBK1HskRUmOAAAAAAAAAADYI3VdP0h6kfQo6aQZSHqX9CrpzTn3M1eHZgqQ9CbpWdJxRvlB0l3Yx01i3tR1fSvpTdJ1Rvmc8tB8S7qZqkNTBYSVX0n6kHQOj9dQfkn5OfDhnLtJ1aGpAkL5p6Rr59yX936Q9JXhI1Z+EXzEdGiygFB+Dp9t2w6Svp1zXxk+Yjq0pA4tERArX6pDSwTEypfq0BIBsfKlOrREQKx8qQ4tERArX6pDSwTEypfq0BIBsfKlOrREQKx8qQ4tERArX6pDSwTEypfq0BIBsfKlOrREQKx8qQ4tERArX6pDSwTEypfq0BIBsfKlOrREQKx8qQ7NFfAP6NAcAf8FOjRVwD+hQ1ME/Ds6lCvg39KhKQL+PR1KEfBv6lBMwL+rQzEBAAAAAAAAAADAHvkF8x5GXibzLgYAAAAASUVORK5CYII=" 
-                     alt="Quran Icon">
-                <h1>عاهدت القرآن</h1>
+            <div class="logo-group">
+                <img src="quran-logo.png" class="logo-icon" alt="Logo">
+                <h1 class="logo-text">عاهدت القرآن</h1>
             </div>
-            <button class="settings-btn">
-                <i class="fas fa-cog"></i>
-            </button>
+            <div class="nav-menu">
+                <a href="#progress" class="nav-item">التقدم</a>
+                <a href="#tasks" class="nav-item">المهام</a>
+                <a href="#settings" class="nav-item">الإعدادات</a>
+            </div>
         </div>
     </nav>
 
-    <main class="main">
+    <!-- المحتوى الرئيسي -->
+    <main class="main-container">
+        <!-- بطاقة التقدم -->
         <div class="progress-card">
             <div class="progress-circle">
-                <span class="progress-percent">30%</span>
-                <span class="progress-text">إنجازك الحالي</span>
+                <svg viewBox="0 0 200 200">
+                    <circle class="circle-bg" cx="100" cy="100" r="90"/>
+                    <circle class="circle-progress" cx="100" cy="100" r="90"/>
+                </svg>
+                <div class="progress-text">
+                    <div class="percentage">30%</div>
+                    <div class="progress-label">إنجازك الحالي</div>
+                </div>
             </div>
-            <p class="motivational-msg">﴿وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ﴾</p>
+            <div class="motivational-quote">
+                "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ"
+            </div>
         </div>
 
-        <div class="daily-task">
+        <!-- المهمة اليومية -->
+        <div class="task-container">
             <div class="task-header">
-                <i class="fas fa-tasks"></i>
-                <h2>مهمة اليوم</h2>
+                <i class="fas fa-tasks task-icon"></i>
+                <h2 class="task-title">المهمة اليومية</h2>
             </div>
-            <p class="task-details">الجزء 21: وَقُلْ جَاءَ الْحَقُّ</p>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
+            <div class="task-content">
+                <div class="task-details">
+                    <div class="part-number">الجزء 21</div>
+                    <div class="part-name">وَقُلْ جَاءَ الْحَقُّ</div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+                <button class="action-button">
+                    <i class="fas fa-book-open"></i>
+                    ابدأ القراءة الآن
+                </button>
             </div>
-            <button class="start-btn">
-                <i class="fas fa-book-open"></i>
-                ابدأ القراءة الآن
-            </button>
         </div>
     </main>
 
     <script>
+        // تفاعلات التقدم
+        const progressCircle = document.querySelector('.circle-progress');
+        const percentageElement = document.querySelector('.percentage');
+        let currentProgress = 30;
+
+        function updateProgress(percent) {
+            const offset = 628 - (628 * percent) / 100;
+            progressCircle.style.strokeDashoffset = offset;
+            percentageElement.textContent = `${percent}%`;
+        }
+
         // تحريك شريط التقدم
-        const progressFill = document.querySelector('.progress-fill');
-        let width = 0;
+        const progressBar = document.querySelector('.progress-bar');
+        let progressWidth = 30;
         setInterval(() => {
-            if(width >= 100) return;
-            width += 1;
-            progressFill.style.width = width + '%';
-        }, 50);
+            progressWidth = (progressWidth + 1) % 100;
+            progressBar.style.width = `${progressWidth}%`;
+        }, 100);
 
-        // تفاعل دائرة التقدم
-        const progressCircle = document.querySelector('.progress-circle');
-        let progress = 30;
-        progressCircle.addEventListener('click', () => {
-            progress = (progress + 5) % 100;
-            progressCircle.style.background = 
-                `conic-gradient(var(--secondary) ${progress}%, #eee ${progress}%)`;
-            document.querySelector('.progress-percent').textContent = `${progress}%`;
-        });
-
-        // زر الإعدادات
-        document.querySelector('.settings-btn').addEventListener('click', () => {
-            alert('صفحة الإعدادات قيد التطوير...');
+        // تفاعل النقر على دائرة التقدم
+        document.querySelector('.progress-circle').addEventListener('click', () => {
+            currentProgress = (currentProgress + 5) % 100;
+            updateProgress(currentProgress);
         });
     </script>
 </body>
